@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { Grid } from './components/Grid'
 import { Controls } from './components/Controls'
-import { nextGeneration, type Grid as GridType } from './lib/game-of-life'
+import { nextGeneration, type Grid as GridType } from '../../backend/src/game-of-life'
 import './App.css'
 
 const GRID_SIZE = 30
