@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest'
-
-type Grid = boolean[][]
+import { nextGeneration, type Grid } from '../src/game-of-life'
 
 describe('Grid Behavior', () => {
   describe('nextGeneration', () => {
@@ -116,7 +115,7 @@ describe('Grid Behavior', () => {
       })
 
       it('handles overcrowded situation correctly', () => {
-        // All cells should die from overcrowding
+        // Corner cells have 3 neighbors (reproduction), edges have 5 (overpopulation), center has 8 (overpopulation)
         const grid: Grid = [
           [true, true, true],
           [true, true, true],
@@ -126,9 +125,9 @@ describe('Grid Behavior', () => {
         const nextGrid = nextGeneration(grid)
         
         expect(nextGrid).toEqual([
+          [true,  false, true],
           [false, false, false],
-          [false, false, false],
-          [false, false, false]
+          [true,  false, true]
         ])
       })
     })
@@ -148,17 +147,14 @@ describe('Grid Behavior', () => {
         
         const nextGrid = nextGeneration(grid)
         
-        // Each cell should be evaluated based on its neighbors
+        // (0,0): 2 neighbors → survives, (0,1): 2 neighbors → survives
+        // (1,0): 2 neighbors → survives, (1,1): 3 neighbors → becomes alive
         expect(nextGrid).toEqual([
-          [true,  false],
-          [true,  false]
+          [true,  true],
+          [true,  true]
         ])
       })
     })
   })
 })
 
-// Function signature - implementation will be in src/
-function nextGeneration(grid: Grid): Grid {
-  throw new Error('Not implemented')
-}

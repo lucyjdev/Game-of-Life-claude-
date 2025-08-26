@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest'
-
-type Grid = boolean[][]
+import { countNeighbors, type Grid } from '../src/game-of-life'
 
 describe('Neighbor Counting', () => {
   describe('countNeighbors', () => {
@@ -116,7 +115,3 @@ describe('Neighbor Counting', () => {
   })
 })
 
-// Function signature - implementation will be in src/
-function countNeighbors(grid: Grid, row: number, col: number): number {
-  throw new Error('Not implemented')
-}

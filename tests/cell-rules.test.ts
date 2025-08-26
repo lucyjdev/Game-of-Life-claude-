@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { applyCellRule } from '../src/game-of-life'
 
 describe('Cell Rules', () => {
   describe('applyCellRule', () => {
@@ -59,7 +60,3 @@ describe('Cell Rules', () => {
   })
 })
 
-// Function signature - implementation will be in src/
-function applyCellRule(isAlive: boolean, neighborCount: number): boolean {
-  throw new Error('Not implemented')
-}

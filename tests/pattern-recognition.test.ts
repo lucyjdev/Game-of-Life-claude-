@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest'
-
-type Grid = boolean[][]
+import { nextGeneration, type Grid } from '../src/game-of-life'
 
 describe('Pattern Recognition', () => {
   describe('Still Life patterns', () => {
@@ -161,9 +160,9 @@ describe('Pattern Recognition', () => {
       
       const rPentominoGen1: Grid = [
         [false, false, false, false, false],
-        [false, false, true,  true,  false],
-        [false, true,  false, true,  false],
-        [false, false, true,  true,  false],
+        [false, true,  true,  true,  false],
+        [false, true,  false, false, false],
+        [false, true,  true,  false, false],
         [false, false, false, false, false]
       ]
       
@@ -207,7 +206,3 @@ describe('Pattern Recognition', () => {
   })
 })
 
-// Function signature - implementation will be in src/
-function nextGeneration(grid: Grid): Grid {
-  throw new Error('Not implemented')
-}
